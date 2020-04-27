@@ -21,7 +21,7 @@ public class HomePage extends BasePage{
         System.out.println(driver.manage().getCookies());
         //使用selenium里的api可以直接操作cookie
         driver.manage().addCookie(new Cookie("wwrtx.refid", "362258521979134"));
-        driver.manage().addCookie(new Cookie("wwrtx.sid", "EXDSKwfUnOa-MriysMelJnrV2YQ10DBlw2VrPxFbkFMMWJQih75Z8N0I1kQCA6bN"));
+        driver.manage().addCookie(new Cookie("wwrtx.sid", "EXDSKwfUnOa-MriysMelJgvdzGKjTLGOFBfrWSZP_e8uWSnqiNFksQ3FtutbixIG"));
         //刷新当前页面 navigate：可以做导航，可以前进可以后退可以刷新.
         driver.navigate().refresh();
         return this;

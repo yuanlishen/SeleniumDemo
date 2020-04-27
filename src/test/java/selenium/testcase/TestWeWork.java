@@ -37,6 +37,10 @@ public class TestWeWork {
         String phone="18818760789";
         homePage.toMemberAdd().add(phone,phone,phone).delete(phone);
     }
+    @Test
+    public void deleteCurrentPage() throws InterruptedException {
+        homePage.toContact().deleteCurrentPage();
+    }
     @AfterClass
     public static void afterAll() throws InterruptedException {
         homePage.quit();
