@@ -22,8 +22,8 @@ public class TestWeWork {
         homePage = new HomePage();
         homePage.LoginWithCookid();
        //数据清理
-        String phone="18718760789";
-        homePage.toContact().delete(phone);
+//        String phone="18718760789";
+//        homePage.toContact().delete(phone);
    }
 
     @Test
@@ -34,6 +34,7 @@ public class TestWeWork {
 
     @Test
     public void testDelete(){
+
         String phone="18818760789";
         homePage.toMemberAdd().add(phone,phone,phone).delete(phone);
     }
@@ -41,6 +42,11 @@ public class TestWeWork {
     public void deleteCurrentPage() throws InterruptedException {
         homePage.toContact().deleteCurrentPage();
     }
+    @Test
+    public void importFromFile(){
+        homePage.toContact().importFromFile("/Users/zhaohan/Downloads/通讯录批量导入模板.xlsx");
+    }
+
     @AfterClass
     public static void afterAll() throws InterruptedException {
         homePage.quit();

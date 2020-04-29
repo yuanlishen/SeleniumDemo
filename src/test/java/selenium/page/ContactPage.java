@@ -9,7 +9,12 @@ import java.util.List;
 public class ContactPage extends BasePage{
     //添加成员
     public ContactPage add(String username,String id,String phone){
-        //由于继承BasePase，所以直接findelement就可以了
+        //由于继承BasePage，所以直接findelement就可以了
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         findElement(By.name("username")).sendKeys(username);
         findElement(By.name("acctid")).sendKeys(id);
         findElement(By.name("mobile")).sendKeys(phone);
@@ -26,7 +31,7 @@ public class ContactPage extends BasePage{
         try{
 //            waitClickable(By.id("clearMemberSearchInput"));
 //            waitClickable(By.linkText("删除"));
-            waitClickable(By.linkText("编辑"));
+            waitClickable(By.linkText("编辑"),3);
         }catch (Exception e){
             System.out.println("not found");
             return this;
@@ -47,7 +52,6 @@ public class ContactPage extends BasePage{
             System.out.println(i);
             elements.get(i).click();
         }
-        //不让它点击太快，所以加个等待
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
@@ -61,6 +65,16 @@ public class ContactPage extends BasePage{
         return this;
     }
 
+
+    //上传文件
+    public void importFromFile(String path){
+        findElement(By.partialLinkText("批量导入/导出")).click();
+        findElement(By.linkText("文件导入")).click();
+        //0：表示不做任何等待，找到它就可以，直到可以被点击；
+        findElement(By.id("js_upload_file_input"),0).sendKeys(path);
+        findElement(By.id("submit_csv")).click();;
+        findElement(By.linkText("完成")).click();
+    }
     //成员列表
     public ContactPage toMemberAdd(){
         return new ContactPage();
