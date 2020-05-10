@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class ContactPage extends BasePage{
@@ -59,13 +60,10 @@ public class ContactPage extends BasePage{
         }
         //点击删除
 //        Thread.sleep(5000);
-
         findElement(By.linkText("删除")).click();
         findElement(By.linkText("确认")).click();
         return this;
     }
-
-
     //上传文件
     public void importFromFile(String path){
         findElement(By.partialLinkText("批量导入/导出")).click();
@@ -77,6 +75,19 @@ public class ContactPage extends BasePage{
     }
     //成员列表
     public ContactPage toMemberAdd(){
+
         return new ContactPage();
+    }
+    //搜索成员是否添加成功
+    public void list(){
+
+    }
+    /*个人资料
+        需要传一个参数（用户的名字，或者标记keyword传递过来）
+     */
+    public HashMap<String,String> getUserInfo(String keyword){
+//        注释：，HashMap<>存成一个词典
+        //todo:
+        return new HashMap<>();
     }
 }

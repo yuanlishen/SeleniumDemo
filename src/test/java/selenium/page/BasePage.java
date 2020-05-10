@@ -12,15 +12,16 @@ public class BasePage {
 
     //使用父类写一个find方法；
     public WebElement findElement(By by){
-
-        //默认是需要等待Clickable
-        waitClickable(by);
-        return HomePage.driver.findElement(by);
+        return findElement(by,5);
     }
 //    特殊情况不需要等待元素，比如上传文件,出现这种情况的时候，我们需要显示等待它的内容
     public WebElement findElement(By by,int timeout){
+        //添加日志，查看在点击哪一步报的错
+        System.out.println(by);
         if (timeout>0){
             waitClickable(by,timeout);
+            //日志
+            System.out.println("clickable");
         }
         return HomePage.driver.findElement(by);
     }
